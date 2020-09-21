@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".listview_articulos">
+
+    <LinearLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@drawable/botonre4"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="LISTA DE ARTICULOS"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/botonre5"
+            app:queryHint="Search men"
+            android:layout_height="wrap_content">
+
+
+        </androidx.appcompat.widget.SearchView>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/botonre5"
+            android:layout_height="wrap_content">
+
+        </ListView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="2020 Palaciosky"
+            android:textColor="#fff"
+            android:textSize="10dp"
+            android:textStyle="italic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </LinearLayout>
+
+</RelativeLayout>
