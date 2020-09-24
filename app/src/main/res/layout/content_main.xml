@@ -175,7 +175,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/botonre2"
 
-                android:text="Alta"
+                android:text="Guardar"
                 android:textColor="#FFFFFF">
 
 
@@ -201,7 +201,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/botonre"
                 android:layout_marginBottom="80dp"
-                android:text="BAJA POR CODIGO"
+                android:text="Borrar"
                 android:textColor="#FFFFFF">
 
 
