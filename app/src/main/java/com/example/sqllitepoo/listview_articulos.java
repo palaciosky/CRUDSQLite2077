@@ -72,4 +72,8 @@ public class listview_articulos extends AppCompatActivity {
             }
         });
     }
+
+    public  void  vol (View view){
+        onBackPressed();
+    }
 }

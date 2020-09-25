@@ -20,9 +20,10 @@
         <ImageButton
             android:id="@+id/btnvol"
             android:layout_width="wrap_content"
-            android:src="@drawable/bacl"
+            android:layout_height="wrap_content"
             android:background="@drawable/bacl"
-            android:layout_height="wrap_content">
+            android:onClick="vol"
+            android:src="@drawable/bacl">
 
         </ImageButton>
 
@@ -160,10 +161,9 @@
             </TextView>
 
             <androidx.cardview.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                card_view:cardUseCompatPadding="true"
-                card_view:cardElevation="4dp"
-                card_view:cardCornerRadius="3dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="3dp"
                 android:layout_margin="6dp"
 
                 android:layout_width="match_parent"
@@ -180,15 +180,14 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-
+                        android:padding="6dp"
                         android:background="@drawable/botonre2"
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_search"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                        </ImageView>
+                            android:layout_width="44dp"
+                            android:layout_height="38dp"
+                            android:src="@drawable/listone"></ImageView>
 
                         <TextView
                             android:layout_marginLeft="15dp"
@@ -196,7 +195,7 @@
 
                             android:textSize="17dp"
                             android:layout_width="match_parent"
-                            android:text="Resultado de la búsqurda"
+                            android:text="Resultado de la búsqueda :)"
                             android:textColor="#FFF"
                             android:textStyle="bold"
                             android:padding="8dp"

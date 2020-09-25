@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".listview_articulos">
 
@@ -14,19 +15,40 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:text="LISTA DE ARTICULOS"
-            android:textColor="#fff"
-            android:textSize="20dp"
-            android:textStyle="italic"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:orientation="horizontal"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
             android:layout_height="wrap_content">
 
-        </TextView>
+
+            <ImageButton
+                android:id="@+id/btnvol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bacl"
+                android:onClick="vol"
+                android:src="@drawable/bacl">
+
+            </ImageButton>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="Lista de Articulos Varios"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+
+        </LinearLayout>
         <SearchView
             android:id="@+id/buscador"
             android:layout_width="match_parent"

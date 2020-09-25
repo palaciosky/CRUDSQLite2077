@@ -3,6 +3,7 @@ package com.example.sqllitepoo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -57,5 +58,9 @@ public class activity_detalle_articulos extends AppCompatActivity {
                 "yyyy-MM-dd-HH:mm:ss a", Locale.getDefault());
         Date day = new Date();
         return dates.format(day);
+    }
+
+    public  void  vol (View view){
+        onBackPressed();
     }
 }
