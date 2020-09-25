@@ -169,7 +169,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <Button
-                android:id="@+id/btalt"
+                android:id="@+id/btgrd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -195,7 +195,7 @@
             </Button>
 
             <Button
-                android:id="@+id/btnbaj"
+                android:id="@+id/btdell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

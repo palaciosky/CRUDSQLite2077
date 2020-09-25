@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">sqllitepoo</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">About</string>
+    <string name="action_art1">Lista de Articulos</string>
+    <string name="action_art2">Lista de Articulos (BETA)</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
