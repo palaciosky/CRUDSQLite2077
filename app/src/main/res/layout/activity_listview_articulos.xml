@@ -27,7 +27,8 @@
             android:layout_height="wrap_content">
 
         </TextView>
-        <androidx.appcompat.widget.SearchView
+        <SearchView
+            android:id="@+id/buscador"
             android:layout_width="match_parent"
             android:layout_marginBottom="10dp"
             android:background="@drawable/botonre5"
@@ -35,9 +36,10 @@
             android:layout_height="wrap_content">
 
 
-        </androidx.appcompat.widget.SearchView>
+        </SearchView>
 
         <ListView
+            android:id="@+id/lsview"
             android:layout_width="match_parent"
             android:layout_marginBottom="30dp"
             android:background="@drawable/botonre5"

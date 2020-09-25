@@ -5,7 +5,7 @@
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
     android:layout_marginTop="40dp"
-    android:background="@drawable/botonre3"
+    android:background="@drawable/botonre6"
     android:layout_height="wrap_content">
 
     <TextView
@@ -22,6 +22,7 @@
     </TextView>
 
     <EditText
+        android:id="@+id/edbusc"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="65dp"
@@ -63,6 +64,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
+            android:id="@+id/cancelbusc"
             android:layout_width="wrap_content"
             android:src="@drawable/cancel"
 

@@ -73,7 +73,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
                 status = false;
             }else {
 
-                String SQL = "INSERT INTO articulos \n "+"(codigo,descripcion,precio)\n"+"VALUES\n"+"('"+String.valueOf(cod)+"','"+String.valueOf(prezio)+"');";
+                String SQL = "INSERT INTO articulos \n "+"(codigo,descripcion,precio)\n"+"VALUES\n"+"('"+String.valueOf(cod)+"','"+desc+"','"+String.valueOf(prezio)+"');";
                 bd().execSQL(SQL);
                 bd().close();
 
@@ -211,7 +211,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         try {
             int cod = dat.getCodigo();
 
-            Cursor fila = db.rawQuery("select codigo, descripcion from articulos where codigo="+cod,null);
+            Cursor fila = db.rawQuery("select codigo, descripcion, precio from articulos where codigo="+cod,null);
 
             if (fila.moveToFirst()){
 
@@ -381,7 +381,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
                 articuloslist.add(articulos);
                 Log.i("codigo", String.valueOf(articulos.getCodigo()));
-                Log.i("descripcion", articulos.getDescripcion().toString());
+                Log.i("codigo", articulos.getDescripcion().toString());
                 Log.i("precio", String.valueOf(articulos.getPrecio()));
             }
             obtenerListaArticulos();
@@ -389,6 +389,40 @@ public class ConexionSQLite extends SQLiteOpenHelper {
 
         }
         return articuloslist;
+
+    }
+
+    public ArrayList<String> consultarListaArticulos1() {
+        boolean estado = false;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        DTO articulos = null;
+        articuloslist = new ArrayList<DTO>();
+
+        try {
+            Cursor fila = db.rawQuery("select * from articulos", null);
+            while (fila.moveToNext()) {
+                articulos = new DTO();
+                articulos.setCodigo(fila.getInt(0));
+                articulos.setDescripcion(fila.getString(1));
+                articulos.setPrecio(fila.getDouble(2));
+
+                articuloslist.add(articulos);
+
+            }
+
+            listaArticulos = new ArrayList<String>();
+
+            for (int i = 0;i < articuloslist.size() ; i++){
+
+                listaArticulos.add(articuloslist.get(i).getCodigo()+" >> "+articuloslist.get(i).getDescripcion());
+            }
+
+        } catch (Exception e) {
+
+        }
+        return listaArticulos;
 
     }
     public ArrayList<String> obtenerListaArticulos () {

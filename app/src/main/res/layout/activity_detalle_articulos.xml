@@ -17,12 +17,14 @@
         android:layout_height="wrap_content">
 
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/btnvol"
             android:layout_width="wrap_content"
-            android:src="@drawable/ic_search"
+            android:src="@drawable/bacl"
+            android:background="@drawable/bacl"
             android:layout_height="wrap_content">
 
-        </ImageView>
+        </ImageButton>
 
         <TextView
             android:layout_width="match_parent"

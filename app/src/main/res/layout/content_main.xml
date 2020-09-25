@@ -40,6 +40,7 @@
             </TextView>
 
             <EditText
+                android:inputType="number"
                 android:id="@+id/et1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,8 +92,8 @@
                 >
 
                 <EditText
+                    android:inputType="number"
                     android:id="@+id/et3"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/botonre3"
@@ -107,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/botonre2"
-                    android:onClick="limpiar"
+                    android:onClick="limpiardat2"
                     android:src="@drawable/clear_foreground">
 
                 </ImageButton>
@@ -145,8 +146,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/botonre4"
 
-                    android:text="Código"
+                    android:onClick="consultcod"
 
+                    android:text="Código"
                     android:textColor="#FFF" />
 
 
@@ -157,8 +159,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/botonre4"
 
-                    android:text="Descripción"
+                    android:onClick="consuldesc"
 
+                    android:text="Descripción"
                     android:textColor="#FFFF" />
 
 
@@ -175,6 +178,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/botonre2"
 
+                android:onClick="guardar"
                 android:text="Guardar"
                 android:textColor="#FFFFFF">
 
@@ -188,6 +192,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/botonre4"
 
+                android:onClick="modi"
                 android:text="MODIFICAR"
                 android:textColor="#FFFFFF">
 
@@ -199,8 +204,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/botonre"
                 android:layout_marginBottom="80dp"
+                android:background="@drawable/botonre"
+                android:onClick="bajacod"
                 android:text="Borrar"
                 android:textColor="#FFFFFF">
 

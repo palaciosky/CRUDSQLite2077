@@ -31,6 +31,7 @@ import android.view.MenuItem;
 
 import entidades.ConexionSQLite;
 import entidades.DTO;
+import modal.Modal;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btng,btnbcod,btndes,btnmod,btndell;
     private TextView result;
 
-   // "Despues se activa" Modal ventanas = new Modal();
+    boolean inputET = false;
+    boolean inputED = false;
+    boolean input1 = false;
+    int resultInsert = 0;
+
+   // "Despues se activa"
+   Modal ventanas = new Modal();
     ConexionSQLite conexion = new ConexionSQLite(this);
     DTO dato = new DTO();
     AlertDialog.Builder wiuwiu;
@@ -87,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                confirmation();
+                comfirmacion();
             }
         });
 
@@ -115,19 +122,21 @@ public class MainActivity extends AppCompatActivity {
         String prezio = "";
 
         try {
-            Intent intento = getIntent();
-            Bundle bun = Intent.getExtras();
-            if (bun != null){
-                codigo = bun.getString("codigo");
-                signal = bun.getString("signal");
-                desc = bun.getString("desc");
-                prezio = bun.getString("prezio");
 
-                if (signal.equals("1")){
-                    etcod.setText(codigo);
-                    etdesc.setText(desc);
-                    etpz.setText(prezio);
-                }
+            Bundle bun = getIntent().getExtras();
+            if (bun != null){
+
+               String a = (String) bun.get("codigo");
+                String b = (String) bun.get("descr");
+                String c = (String) bun.get("codigo");
+                signal = bun.getString("pe");
+                desc = bun.getString("de");
+                prezio = bun.getString("pe");
+
+                    etcod.setText(a);
+                    etdesc.setText(b);
+                    etpz.setText(c);
+
             }
 
         }catch (Exception o){
@@ -163,6 +172,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void limpiardat(){
+
+        etcod.setText(null);
+        etdesc.setText(null);
+        etpz.setText(null);
+    }
+
+    public void limpiardat2(View view){
+
+        etcod.setText(null);
+        etdesc.setText(null);
+        etpz.setText(null);
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -181,12 +205,170 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }else if (id == R.id.action_listaArt){
-            Intent spinnerAct = new Intent(MainActivity.this,Consu)
+            Intent spinnerAct = new Intent(MainActivity.this,activity_consulta.class);
+            startActivity(spinnerAct);
             return true;
+        }else if (id == R.id.action_listaArt1){
+            Intent listVAct = new Intent(MainActivity.this,listview_articulos.class);
+            startActivity(listVAct);
+            return  true;
+
         }
 
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void guardar (View view){
+        if (etcod.getText().toString().length()== 0){
+            etcod.setError("Campo obligatorio");
+            inputET = false;
+        }else {
+            inputET = true;
+        }
+
+        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        if (etdesc.getText().toString().length()==0){
+            etdesc.setError("Campo obligatorio");
+            inputED = false;
+        }else {
+            inputED = true;
+        }
+
+        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        if (etpz.getText().toString().length()== 0){
+            etpz.setError("Campo obligatorio");
+            input1 = false;
+        }else{
+            input1 = true;
+        }
+
+        //iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+        if (inputET && inputED && input1){
+            try {
+                dato.setCodigo(Integer.parseInt(etcod.getText().toString()));
+                dato.setDescripcion(etdesc.getText().toString());
+                dato.setPrecio(Double.parseDouble(etpz.getText().toString()));
+
+                if (conexion.InsertTradicional(dato)){
+                    Toast.makeText(this,"Registro Agregado OwO",Toast.LENGTH_SHORT).show();
+                    limpiardat();
+                }else {
+                    Toast.makeText(this,"Ya existe el registro"+etcod.getText().toString(),Toast.LENGTH_LONG).show();
+                }
+            }catch (Exception o){
+
+                Toast.makeText(this,"Hubo un Error el algo",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public  void mensaje(String msm){
+        Toast.makeText(this," "+msm,Toast.LENGTH_SHORT).show();
+    }
+
+    public  void consultcod (View view){
+        if (etcod.getText().toString().length()== 0){
+            etcod.setError("Campo obligatorio");
+            inputET = false;
+        }else {
+            inputET = true;
+        }
+
+        if (inputET){
+            String codigo = etcod.getText().toString();
+            dato.setCodigo(Integer.parseInt(codigo));
+
+            if (conexion.consultArt(dato)){
+                etdesc.setText(dato.getDescripcion());
+                etpz.setText(""+dato.getPrecio());
+            }else{
+
+                Toast.makeText(this,"No existe el articulo ese",Toast.LENGTH_SHORT).show();
+                limpiardat();
+            }
+        }else{
+            Toast.makeText(this,"Ingrese el articulo por favor",Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public  void consuldesc (View view){
+        if (etdesc.getText().toString().length()== 0){
+            etdesc.setError("Campo obligatorio");
+            inputED = false;
+        }else {
+            inputED = true;
+        }
+
+        if (inputED){
+            String desc = etdesc.getText().toString();
+            dato.setDescripcion(desc);
+            if (conexion.cosultDesc(dato)){
+                etcod.setText(""+dato.getCodigo());
+                etdesc.setText(dato.getDescripcion());
+                etpz.setText(""+dato.getPrecio());
+
+            }else {
+                Toast.makeText(this,"No existe tal articulo",Toast.LENGTH_SHORT).show();
+                limpiardat();
+
+            }
+        }else {
+            Toast.makeText(this,"Ingrese el articulo por descripcion por favor",Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    public  void bajacod(View view){
+        if (etcod.getText().toString().length()== 0){
+            etcod.setError("Campo obligatorio");
+            inputET = false;
+        }else {
+            inputET = true;
+        }
+
+        if (inputET){
+            String codmw = etcod.getText().toString();
+            dato.setCodigo(Integer.parseInt(codmw));
+            if (conexion.delCod(MainActivity.this,dato)){
+                limpiardat();
+
+            }else {
+                Toast.makeText(this,"Ingrese el articulo ",Toast.LENGTH_SHORT).show();
+                limpiardat();
+            }
+        }
+
+    }
+
+
+    public void modi (View view){
+        if (etcod.getText().toString().length()== 0){
+            etcod.setError("Campo obligatorio");
+            inputET = false;
+        }else {
+            inputET = true;
+        }
+
+        if (inputET){
+            String cod = etcod.getText().toString();
+            String desc = etdesc.getText().toString();
+            double prezio = Double.parseDouble(etpz.getText().toString());
+
+            dato.setCodigo(Integer.parseInt(cod));
+            dato.setDescripcion(desc);
+            dato.setPrecio(prezio);
+
+            if (conexion.mod(dato)){
+                Toast.makeText(this,"Editado",Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this,"No se encotro el art a modificar el articulo ",Toast.LENGTH_SHORT).show();
+
+            }
+        }
     }
 }
