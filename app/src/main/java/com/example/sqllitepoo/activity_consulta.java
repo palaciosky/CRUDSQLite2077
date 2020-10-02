@@ -1,9 +1,11 @@
 package com.example.sqllitepoo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -24,6 +26,25 @@ public class activity_consulta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
+
+        Toolbar toolbar3 = findViewById(R.id.toolbar3);
+        toolbar3.setNavigationIcon(getResources().getDrawable(R.drawable.bacl));
+        toolbar3.setTitleTextColor(getResources().getColor(R.color.white));
+        toolbar3.setTitleMargin(0,0,0,0);
+        toolbar3.setSubtitle("Spinner View");
+        toolbar3.setSubtitleTextColor(getResources().getColor(R.color.white));
+        toolbar3.setTitle("Palaciosky");
+        setSupportActionBar(toolbar3);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+        toolbar3.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                volver();
+            }
+        });
 
         spoptions = (Spinner)findViewById(R.id.spioptions);
         tcod = (TextView) findViewById(R.id.codspin);
@@ -56,5 +77,9 @@ public class activity_consulta extends AppCompatActivity {
 
             }
         });
+    }
+
+    public  void  volver (){
+        onBackPressed();
     }
 }

@@ -18,7 +18,7 @@ import com.example.sqllitepoo.R;
 import  java.text.SimpleDateFormat;
 import  java.util.ArrayList;
 import  java.util.Calendar;
-
+import java.util.List;
 
 
 public class ConexionSQLite extends SQLiteOpenHelper {
@@ -55,8 +55,6 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         return bd;
 
     }
-
-    //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 
     public boolean InsertTradicional(DTO datos){
         boolean status = true;
@@ -123,8 +121,6 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         return  estadounido;
     }
 
-    //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-
 
     public  boolean  InsertReg(DTO datos){
 
@@ -162,10 +158,7 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         return estado;
     }
 
-    //eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-
-
-    public boolean consultArt(DTO dat){
+     public boolean consultArt(DTO dat){
 
         boolean estado = true;
         int results;
@@ -430,9 +423,25 @@ public class ConexionSQLite extends SQLiteOpenHelper {
         listaArticulos.add("Seleccione");
 
         for (int i = 0; i < articuloslist.size(); i++) {
-            listaArticulos.add(articuloslist.get(i).getCodigo() + "~" + articuloslist.get(i).getDescripcion());
+            listaArticulos.add(articuloslist.get(i).getCodigo() + " >> " + articuloslist.get(i).getDescripcion());
         }
         return listaArticulos;
+    }
+
+    //Array agregado
+
+    public List<DTO> mostrarArticulos(){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor curso  = db.rawQuery("SELECT * FROM articulos order by codigo desc",null);
+        List<DTO> articulos = new ArrayList<>();
+        if (curso.moveToFirst())
+        {
+            do {
+                articulos.add(new DTO (curso.getInt(0),curso.getString(1),curso.getDouble(2)));
+            }while (curso.moveToNext());
+        }
+        return articulos;
     }
 
 

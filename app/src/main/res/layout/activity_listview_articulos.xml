@@ -1,88 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".listview_articulos">
 
-    <LinearLayout
-        android:padding="8dp"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:background="@drawable/botonre4"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="15dp"
-            android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
 
-            <ImageButton
-                android:id="@+id/btnvol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bacl"
-                android:onClick="vol"
-                android:src="@drawable/bacl">
 
-            </ImageButton>
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Lista de Articulos Varios"
-                android:textColor="#fff"
-                android:textSize="20dp"
-                android:textStyle="italic"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-
-                android:layout_marginBottom="30dp"
-                android:layout_height="wrap_content">
-
-            </TextView>
+    <include layout="@layout/listviewe" />
 
 
-        </LinearLayout>
-        <SearchView
-            android:id="@+id/buscador"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/botonre5"
-            app:queryHint="Search men"
-            android:layout_height="wrap_content">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        app:backgroundTint="@color/colorAccent2"
+        android:id="@+id/fab2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/add" />
 
-
-        </SearchView>
-
-        <ListView
-            android:id="@+id/lsview"
-            android:layout_width="match_parent"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/botonre5"
-            android:layout_height="wrap_content">
-
-        </ListView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:text="2020 Palaciosky"
-            android:textColor="#fff"
-            android:textSize="10dp"
-            android:textStyle="italic"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-
-            android:layout_marginBottom="20dp"
-            android:layout_height="wrap_content">
-
-        </TextView>
-
-    </LinearLayout>
-
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,20 +1,20 @@
 package com.example.sqllitepoo;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SearchView;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.ListView;
+        import android.widget.SearchView;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
-import entidades.ConexionSQLite;
-import entidades.DTO;
+        import entidades.ConexionSQLite;
+        import entidades.DTO;
 
 public class listview_articulos extends AppCompatActivity {
 

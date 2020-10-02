@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.bacl));
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.close));
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setTitleMargin(0,0,0,0);
         toolbar.setSubtitle("CRUD SQLite 2077");
@@ -210,6 +210,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }else if (id == R.id.action_listaArt1){
             Intent listVAct = new Intent(MainActivity.this,listview_articulos.class);
+            startActivity(listVAct);
+            return  true;
+
+        }else if (id == R.id.action_recylist){
+            Intent listVAct = new Intent(MainActivity.this,consultarecy.class);
             startActivity(listVAct);
             return  true;
 

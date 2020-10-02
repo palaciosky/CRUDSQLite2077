@@ -7,5 +7,8 @@
     <color name="white">#FFFFFF</color>
     <color name="sub">#1E000000</color>
     <color name="sub2">#D1D1D1</color>
+    <color name="colorAccent2">#03DAC5</color>
     <color name="slave">#8E8C8C</color>
+
+
 </resources>
